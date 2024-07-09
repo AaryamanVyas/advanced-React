@@ -5,7 +5,8 @@ import { useState } from 'react';
 function App() {
   const [name, setName] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("Form submitted!");
   }
 
