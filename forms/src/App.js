@@ -7,6 +7,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setName("");
     console.log("Form submitted!");
   }
 
@@ -15,10 +16,10 @@ function App() {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <div className='Field'>
-            <label>Name:</label>
-            <input type='text' placeholder='Name' name='name' value={name} onChange={e => setName(e.target.value)} />
+            <label htmlFor="name">Name:</label>
+            <input id="name" type='text' placeholder='Name' name='name' value={name} onChange={e => setName(e.target.value)} />
           </div>
-          <button type='submit'>Submit</button>
+          <button disabled={!name} type='submit'>Submit</button>
         </fieldset>
       </form>
     </div>
