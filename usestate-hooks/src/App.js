@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 export default function App() {
-  const restaurantName = useState("Lemon");
-  console.log(restaurantName);
-  return null;
+  const [restaurantName, setRestaurantName] = useState("Lemon");
+  return (
+    <h1>{setRestaurantName}</h1>
+  );
 };
