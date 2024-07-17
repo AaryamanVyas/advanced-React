@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+function GoalForm(props) {
+  const [formData, setFormData] = React.useState({goal: "", by:""});
+
+  function changeHandler(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value});
+  }
+
+  function submitHandler(e) {
+    e.preventDefault();
+    props.onAdd(formData);
+    setFormData({ goal: "", by:""});
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>My Little Lemon Goals</h1>
+      <form onSubmit={submitHandler}>
+        <input type="text" name="goal" placeholder="Goal" value={formData.goal} onChange={changeHandler} />
+        <input type="text" name="by" placeholder="by..." value={formData.by} onChange={changeHandler} />
+        <button>Submit Goal</button>
+      </form>
+    </>
   );
 }
+
+
 
 export default App;
