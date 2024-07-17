@@ -15,9 +15,9 @@ export default function App() {
     setGiftCard(prevState => {
         return {
           ...prevState,
-          text: "Your coupon has been used."
+          text: "Your coupon has been used.",
           valid: false,
-          instructions: "Please visit our restaurant to renew your gift card."
+          instructions: "Please visit our restaurant to renew your gift card.",
         }
     });
   }
