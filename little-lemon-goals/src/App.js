@@ -25,6 +25,19 @@ function GoalForm(props) {
   );
 }
 
+function ListOfGoals(props) {
+  return (
+    <ul>
+      {props.allGoals.map((g) => (
+        <li key={g.goal}>
+          <span>My goal is to {g.goal}, {g.by}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 
-export default App;
+export default function App() {
+  
+}
