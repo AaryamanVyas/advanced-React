@@ -1,18 +1,17 @@
-import { useState } from "react";
-
-export default function App() {
-  const [restaurantName, setRestaurantName] = useState("Lemon");
-
-  function updateRestaurantName() {
-    setRestaurantName("Little Lemon")
-  };
-
-  return (
-    <div>
-      <h1>{restaurantName}</h1>
-      <button onClick={updateRestaurantName}>
-        update restaurant name
-      </button>
-    </div>
-  );
-};
+import { useState } from "react"; 
+ 
+export default function App() { 
+  const [greeting, setGreeting] = useState({ greet: "Hello, World" }); 
+  console.log(greeting, setGreeting); 
+ 
+  function updateGreeting() { 
+    setGreeting({ greet: "Hello, World-Wide Web" }); 
+  } 
+ 
+  return ( 
+    <div> 
+      <h1>{greeting.greet}</h1> 
+      <button onClick={updateGreeting}>Update greeting</button> 
+    </div> 
+  ); 
+} 
