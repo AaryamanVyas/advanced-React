@@ -6,13 +6,18 @@ export default function App() {
         firstName: "Jennifer",
         lastName: "Smith",
         text: "Free dinner for 4 guests",
-        valid: true,
-        instructions: "To use your coupon, click the button below.",
+        valid: false,
+        instructions: "Please visit our restaurant to renew your gift card.",
     }
   );
 
   function spendGiftCard() {
-
+    setGiftCard((prevState) => {
+        return {
+          ...prevState,
+          text: "Your coupon has been used."
+        };
+    });
   }
 
   return (
