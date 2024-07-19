@@ -4,7 +4,7 @@ function App() {
   const [user, setUser] = React.useState([]);
 
   const fetchData = () => {
-
+    fetch("https://randomuser.me/api/?results=1")
   };
 
   React.useEffect(() => {
