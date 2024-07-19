@@ -9,6 +9,10 @@ function App() {
     .then(data => setUser(data));
   }
 
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
   
 }
 
