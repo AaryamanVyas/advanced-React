@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [user, setUser] = React.useState([]);
+
+  const fetchData = () => {
+
+  };
+
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
+  return Object.keys(user).length > 0 ? (
+    <div style={{padding: "40px"}}>
+      <h1>Customer data</h1>
+
     </div>
+  ) : (
+    <h1>Data pending...</h1>
   );
 }
 
