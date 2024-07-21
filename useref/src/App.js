@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 
 function App() {
+  const formInputRef = React.useRef(null);
+
   const focusInput = () => {
     formInputRef.current.focus();
   }
@@ -9,7 +11,7 @@ function App() {
   return (
     <>
     <h1>Using useRef to access underlying DOM</h1>
-    <input type='text' />
+    <input ref={formInputRef} type='text' />
     <button onClick={focusInput}>
       Focus input
     </button>
