@@ -1,10 +1,11 @@
-import { act, useReducer } from 'react';
+import { useReducer } from 'react';
 import './App.css';
 
 
 const reducer = (state, action) => {
   if (action.type === 'buy_ingredients') return {money: state.money - 10};
   if (action.type === 'sell_A_meal') return {money: state.money + 10};
+  return state;
 }
 function App() {
 
