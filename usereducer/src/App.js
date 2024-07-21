@@ -4,6 +4,7 @@ import './App.css';
 const reducer = (state, action) => {
   if (action.type === 'buy_ingredients') return { money: state.money - 10 };
   if (action.type === 'sell_A_meal') return { money: state.money + 10 };
+  if (action.type === 'celebrity_visit') return { money: state.money + 5000 };
   return state;
 };
 
@@ -17,6 +18,7 @@ function App() {
       <div>
         <button onClick={() => dispatch({ type: 'buy_ingredients' })}>Shopping for veggies!</button>
         <button onClick={() => dispatch({ type: 'sell_A_meal' })}>Serve a meal to the customer</button>
+        <button onClick={() => dispatch({ type: 'celebrity_visit' })}>Celebrity_ visit</button>
       </div>
     </div>
   );
