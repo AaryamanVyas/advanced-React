@@ -7,22 +7,17 @@ const reducer = (state, action) => {
   if (action.type === 'sell_A_meal') return {money: state.money + 10};
 }
 function App() {
+
+  const initialState = {money: 100};
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>Wallet: {state.money}</h1>
+      <div>
+        <button onClick={() => dispatch({type: 'buy_ingredients'})}>Shopping for veggies!</button>
+        <button onClick={() => dispatch({type: "sell_a_meal"})}>serve a meal to the customer</button>
+      </div>
     </div>
   );
 }
