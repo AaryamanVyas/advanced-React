@@ -25,6 +25,7 @@ function App() {
         <p>
           are you sure you want to proceed
         </p>
+        <DeleteButton />
       </Alert>
     </div>
   );
