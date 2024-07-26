@@ -1,4 +1,5 @@
 import './App.css';
+
 const Button = ({ children, backgroundColor }) => {
   return <button style={{backgroundColor}}>{children}</button>;
 };
@@ -6,8 +7,8 @@ const Button = ({ children, backgroundColor }) => {
 const Alert = ({children}) => {
   return (
     <>
-      <div className='Overlay' />
-      <div className='Alert'>{children}</div>
+      <div className="Overlay" />
+      <div className="Alert">{children}</div>
     </>
   );
 };
@@ -17,8 +18,14 @@ const DeleteButton = () => {
 }
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <header>Little Lemon Restaurant</header>
+      <Alert>
+        <h4>Delete Account</h4>
+        <p>
+          are you sure you want to proceed
+        </p>
+      </Alert>
     </div>
   );
 }
