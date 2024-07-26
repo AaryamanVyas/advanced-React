@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-
+const Button = ({ children, backgroundColor }) => {
+  return <button style={{backgroundColor}}>{children}</button>;
+}
 function App() {
   return (
     <div className="App">
