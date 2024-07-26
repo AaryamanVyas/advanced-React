@@ -6,26 +6,19 @@ const Row = ({children}) => {
     <div className="Row">
       {children}
     </div>
-  )
-}
+  );
+};
 
-function App() {
+function LiveOrders() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row spacing={32}>
+        <p>Pizza Margarita</p>
+        <p>2</p>
+        <p>30$</p>
+        <p>18:30</p>
+        <p>John</p>
+      </Row>
     </div>
   );
 }
