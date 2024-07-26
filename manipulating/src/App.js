@@ -1,5 +1,13 @@
-import logo from './logo.svg';
+import * as React from "react";
 import './App.css';
+
+const Row = ({children}) => {
+  return (
+    <div className="Row">
+      {children}
+    </div>
+  )
+}
 
 function App() {
   return (
