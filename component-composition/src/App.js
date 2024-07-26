@@ -1,25 +1,19 @@
 import './App.css';
 const Button = ({ children, backgroundColor }) => {
   return <button style={{backgroundColor}}>{children}</button>;
-}
+};
+
+const Alert = ({children}) => {
+  return (
+    <>
+      <div className='Overlay' />
+      <div className='Alert'>{children}</div>
+    </>
+  );
+};
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
   );
 }
 
