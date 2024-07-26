@@ -11,6 +11,10 @@ const Alert = ({children}) => {
     </>
   );
 };
+
+const DeleteButton = () => {
+  return <Button backgroundColor="red">Delete</Button>;
+}
 function App() {
   return (
     <div className='App'>
