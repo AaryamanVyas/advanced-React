@@ -13,7 +13,9 @@ const Alert = ({children}) => {
 };
 function App() {
   return (
-    
+    <div className='App'>
+      <header>Little Lemon Restaurant</header>
+    </div>
   );
 }
 
