@@ -19,8 +19,12 @@ const PointMouseLogger = ({ mousePosition }) => {
   if (!mousePosition) {
     return null;
   }
-  
-}
+  return (
+    <p>
+      ({mousePosition.x}, {mousePosition.y})
+    </p>
+  );
+};
 
 function App() {
   return (
