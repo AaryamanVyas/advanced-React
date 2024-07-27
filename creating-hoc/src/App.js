@@ -15,6 +15,12 @@ const PanelMouseLogger = ({ mousePosition}) => {
   );
 };
 
+const PointMouseLogger = ({ mousePosition }) => {
+  if (!mousePosition) {
+    return null;
+  }
+  
+}
 
 function App() {
   return (
