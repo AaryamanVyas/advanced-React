@@ -1,10 +1,21 @@
 import * as React from "react";
 import './App.css';
 
-const Row = ({children}) => {
+const Row = ({children, spacing}) => {
+  const childStyle = {
+    marginLeft: `${spacing}px`,
+  };
+
   return (
     <div className="Row">
-      {children}
+      {React.Children.map(children, (child, index) => {
+        return React.cloneElement(child, {
+          style: {
+            ...child.props.style,
+            ...(index > 0 ? childStyle : {}),
+          },
+        });
+      })}
     </div>
   );
 };
@@ -23,4 +34,4 @@ function LiveOrders() {
   );
 }
 
-export default App;
+export default LiveOrders;
