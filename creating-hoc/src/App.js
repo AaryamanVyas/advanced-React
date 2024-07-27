@@ -1,5 +1,11 @@
 import './App.css';
 
+const withMousePosition = (WrappedComponent) => {
+  return (props) => {
+    return <WrappedComponent {...props} />;
+  };
+};
+
 const PanelMouseLogger = ({ mousePosition}) => {
   if (!mousePosition) {
     return null;
