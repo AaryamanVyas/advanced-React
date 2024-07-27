@@ -1,5 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+
+const PanelMouseLogger = ({ mousePosition}) => {
+  if (!mousePosition) {
+    return null;
+  }
+}
+
 
 function App() {
   return (
