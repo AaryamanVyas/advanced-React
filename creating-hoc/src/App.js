@@ -1,9 +1,30 @@
+import { useState } from 'react';
 import './App.css';
-
+import {useState, useEffect} from 'react';
 const withMousePosition = (WrappedComponent) => {
   return (props) => {
-    return <WrappedComponent {...props} />;
-  };
+
+    const [mousePosition, setMousePosition] = useState({
+      x:0,
+      y:0,
+    })
+
+    useEffect(() => {
+      const handleMousePositionChange = (e) => {
+        setMousePosition({
+          x:e.clientX,
+          y: e.clientY,
+        });
+       };
+
+       window.addEventListener("mousemove", handleMousePositionChange);
+
+       return () => {
+        window.removeEventListener("mouseover", handleMousePositionChange);
+       };
+    }, []);
+    return <WrappedComponent {...props} mousePosition={mousePosition}/>;
+  }; 
 };
 
 const PanelMouseLogger = ({ mousePosition}) => {
