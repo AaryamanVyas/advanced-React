@@ -4,7 +4,16 @@ const PanelMouseLogger = ({ mousePosition}) => {
   if (!mousePosition) {
     return null;
   }
-}
+  return (
+    <div className='BasicTracker'>
+      <p>Mouse position:</p>
+      <div className='Row'>
+        <span>X: {mousePosition.x}</span>
+        <span>y: {mousePosition.y} </span>
+      </div>
+    </div>
+  );
+};
 
 
 function App() {
