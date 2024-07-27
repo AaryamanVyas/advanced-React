@@ -1,42 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import {useState, useEffect} from 'react';
+
 const withMousePosition = (WrappedComponent) => {
   return (props) => {
-
     const [mousePosition, setMousePosition] = useState({
-      x:0,
-      y:0,
-    })
+      x: 0,
+      y: 0,
+    });
 
     useEffect(() => {
       const handleMousePositionChange = (e) => {
         setMousePosition({
-          x:e.clientX,
+          x: e.clientX,
           y: e.clientY,
         });
-       };
+      };
 
-       window.addEventListener("mousemove", handleMousePositionChange);
+      window.addEventListener("mousemove", handleMousePositionChange);
 
-       return () => {
-        window.removeEventListener("mouseover", handleMousePositionChange);
-       };
+      return () => {
+        window.removeEventListener("mousemove", handleMousePositionChange);
+      };
     }, []);
-    return <WrappedComponent {...props} mousePosition={mousePosition}/>;
-  }; 
+
+    return <WrappedComponent {...props} mousePosition={mousePosition} />;
+  };
 };
 
-const PanelMouseLogger = ({ mousePosition}) => {
+const PanelMouseLogger = ({ mousePosition }) => {
   if (!mousePosition) {
     return null;
   }
   return (
-    <div className='BasicTracker'>
+    <div className="BasicTracker">
       <p>Mouse position:</p>
-      <div className='Row'>
+      <div className="Row">
         <span>X: {mousePosition.x}</span>
-        <span>y: {mousePosition.y} </span>
+        <span>Y: {mousePosition.y}</span>
       </div>
     </div>
   );
@@ -53,12 +53,15 @@ const PointMouseLogger = ({ mousePosition }) => {
   );
 };
 
+const PanelMouseTracker = withMousePosition(PanelMouseLogger);
+const PointMouseTracker = withMousePosition(PointMouseLogger);
+
 function App() {
   return (
     <div className="App">
-      <header className='Header'>Little Lemon Restaurant</header>
-      <PanelMouseLogger />
-      <PointMouseLogger />
+      <header className="Header">Little Lemon Restaurant</header>
+      <PanelMouseTracker />
+      <PointMouseTracker />
     </div>
   );
 }
