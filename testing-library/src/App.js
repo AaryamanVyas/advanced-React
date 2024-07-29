@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <a href='https://littlelemon.com' className='App-link'>
-        Little Orange Restaurant
+        Little Lemon Restaurant
       </a>
     </div>
   );
