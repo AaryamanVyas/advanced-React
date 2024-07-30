@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -64,22 +64,25 @@ const Header = () => {
           alignItems="center"
         >
           <nav>
-            <HStack spacing={4}>
+            <HStack spacing={8}>
               {socials.map((social, index) => (
-                <a key={index} href={social.url} target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={social.icon}
+                    size="2x"
+                  />
                 </a>
               ))}
             </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a href="/#projects" onClick={handleClick('projects')}>
-                Projects
-              </a>
-              <a href="/#contactme" onClick={handleClick('contactme')}>
-                Contact Me
-              </a>
+              {/* Add links to Projects and Contact me section */}
             </HStack>
           </nav>
         </HStack>
