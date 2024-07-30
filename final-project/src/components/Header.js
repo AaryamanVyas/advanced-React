@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -33,7 +33,24 @@ const socials = [
 ];
 
 const Header = () => {
-  const handleClick = (anchor) => () => {
+  const [scrollingUp, setScrollingUp] = useState(true);
+  const lastScrollTop = useRef(0);
+
+  const handleScroll = () => {
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    setScrollingUp(currentScrollTop < lastScrollTop.current);
+    lastScrollTop.current = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleClick = (anchor) => (event) => {
+    event.preventDefault();
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
@@ -50,7 +67,7 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      translateY={0}
+      translateY={scrollingUp ? "0" : "-200px"}
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
@@ -82,18 +99,8 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a
-                href="#projects-section"
-                onClick={handleClick("projects")}
-              >
-                Projects
-              </a>
-              <a
-                href="#contactme-section"
-                onClick={handleClick("contactme")}
-              >
-                Contact Me
-              </a>
+              <a href="#projects-section" onClick={handleClick('projects')}>Projects</a>
+              <a href="#contactme-section" onClick={handleClick('contactme')}>Contact Me</a>
             </HStack>
           </nav>
         </HStack>
